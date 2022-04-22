@@ -1,26 +1,38 @@
-import {Box, Container} from '@mui/material';
-import CartDetail from './components';
+import { Box, Container } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { CartColumns, CartSubTotal, CartList, EmptyCart } from './components';
 
-export const CartPage = ()=>{
-    return (
+export const CartPage = () => {
+  const cartStore = useSelector((state) => state.cart);
+  const inCart = cartStore.inCart;
+
+  return (
     <Box
-        component="main"
+      component="main"
+      sx={{
+        flexGrow: 1,
+        py: 8,
+      }}
+    >
+      <Container
+        maxWidth="lg"
         sx={{
-          flexGrow: 1,
-          py: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-            <CartDetail />
-        </Container>
-      </Box>
-    )
-}
+        {typeof inCart !=='undefined' && inCart.length  ? (
+          <>
+            <CartColumns></CartColumns>
+            <CartList></CartList>
+            <CartSubTotal></CartSubTotal>
+          </>
+        ) : (
+          <EmptyCart />
+        )}
+      </Container>
+    </Box>
+  );
+};

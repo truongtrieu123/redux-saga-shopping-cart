@@ -1,11 +1,8 @@
-import { fork, all } from 'redux-saga/effects';
-import { getAllProducts, watchGetProducts } from './products';
-import { watchCheckout } from './cart';
+import { combineReducers } from 'redux';
+import { cartReducer } from './cart';
+import { productReducer } from './products';
 
-export default function* root() {
-  yield all([
-    fork(getAllProducts),
-    fork(watchGetProducts),
-    fork(watchCheckout),
-  ]);
-}
+export const rootReducer = combineReducers({
+  cart: cartReducer,
+  product: productReducer,
+});

@@ -1,3 +1,19 @@
-import { combineReducers } from 'redux';
+import { RECEIVE_PRODUCTS } from 'store/types';
 
-export default combineReducers();
+const initialState = {
+  productList: [],
+  productDetail: null,
+  isOpenModal: false,
+};
+
+export const productReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case RECEIVE_PRODUCTS:
+      return {
+        ...state,
+        productList: action.payload.slice(),
+      };
+    default:
+      return state;
+  }
+};

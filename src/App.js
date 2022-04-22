@@ -1,20 +1,15 @@
-import { Router, Switch } from '@mui/icons-material';
-import { ProductsPage, CartPage, Navbar } from 'pages';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ProductsPage, CartPage } from 'pages';
+import { Navbar } from 'layouts';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Navbar></Navbar>
-      <Switch>
-        <Router exact path="/">
-          <ProductsPage />
-        </Router>
-        <Router exact path="/cart">
-          <CartPage />
-        </Router>
-      </Switch>
-    </>
+    <Routes>
+      <Route path="/" element={<Navbar />}>
+        <Route index element={<ProductsPage />} />
+        <Route path="cart" element={<CartPage />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;

@@ -1,5 +1,4 @@
-import ProductList from './products/components/product-list';
-import Cart from './cart/components/cart-list';
-import Navbar from './navbar';
+import { ProductsPage } from './products';
+import { CartPage } from './cart';
 
-export { ProductList, Cart, Navbar };
+export { ProductsPage, CartPage };
