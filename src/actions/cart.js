@@ -23,10 +23,10 @@ export const clearCart = () => {
   return { type: CLEAR_CART };
 };
 
-export const checkoutRequestSuccess = () => {
-  return { type: CHECKOUT_SUCCESS };
+export const checkoutRequestSuccess = (message) => {
+  return { type: CHECKOUT_SUCCESS, payload: message };
 };
 
-export const checkoutRequestFailed = () => {
-  return { type: CHECKOUT_FAILED };
+export const checkoutRequestFailed = (message) => {
+  return { type: CHECKOUT_FAILED, payload: message };
 };

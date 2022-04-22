@@ -1,7 +1,7 @@
 import { Box, Container } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllProducts } from 'store/actions';
+import { getAllProducts } from 'actions';
 import { ProductList } from './components';
 
 export const ProductsPage = () => {

@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 import { useSelector, useDispatch } from 'react-redux';
-import { addProductToCart } from 'store/actions';
+import { addProductToCart } from 'actions';
 import { ProductItem } from './product-item';
 
 export const ProductList = ({ children }) => {

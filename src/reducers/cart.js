@@ -1,3 +1,4 @@
+import { WindowSharp } from '@mui/icons-material';
 import {
   CHECKOUT_FAILED,
   CHECKOUT_SUCCESS,
@@ -16,6 +17,7 @@ const initialState = {
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHECKOUT_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         checkoutStatus: {
@@ -24,6 +26,7 @@ export const cartReducer = (state = initialState, action) => {
         },
       };
     case CHECKOUT_FAILED:
+      console.log(action.payload);
       return {
         ...state,
         checkoutStatus: {

@@ -4,7 +4,7 @@ import {
   addProductToCart,
   decrementProductInCart,
   removeFromCart,
-} from 'store/actions';
+} from 'actions';
 import { CartItem } from './cart-item';
 
 export const CartList = ({ children }) => {

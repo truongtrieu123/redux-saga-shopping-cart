@@ -1,14 +1,15 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeEvery, call, put, select } from 'redux-saga/effects';
 import { CHECKOUT_REQUEST } from 'store/types';
 import api from 'services';
-import { checkoutRequestFailed, checkoutRequestSuccess } from 'store/actions';
+import { checkoutRequestFailed, checkoutRequestSuccess } from 'actions';
 
 function* checkoutCart() {
   try {
-    const res = yield call(api.requestCheckout);
-    yield put(checkoutRequestSuccess());
+    const inCart = select((state) => state.cart.inCart);
+    const res = yield call(api.requestCheckout, inCart);
+    yield put(checkoutRequestSuccess(res));
   } catch (ex) {
-    yield put(checkoutRequestFailed());
+    yield put(checkoutRequestFailed(ex));
   }
 }
 

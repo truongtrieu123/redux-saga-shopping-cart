@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { GET_PRODUCTS } from 'store/types';
 import api from 'services';
-import { receiveProducts } from 'store/actions';
+import { receiveProducts } from 'actions';
 
 function* getAllProducts() {
   try {

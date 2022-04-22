@@ -1,10 +1,13 @@
+import { WindowSharp } from '@mui/icons-material';
 import { Box, Container } from '@mui/material';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { CartColumns, CartSubTotal, CartList, EmptyCart } from './components';
 
 export const CartPage = () => {
   const cartStore = useSelector((state) => state.cart);
   const inCart = cartStore.inCart;
+
 
   return (
     <Box
